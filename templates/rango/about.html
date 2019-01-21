@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 
+
 <html>
     <head>
         <title>Rango</title>
@@ -13,20 +14,22 @@
     </head>
 
     <body>
-        <h1>Rango says...</h1>
 
-        <div>
-            hey there partner! <br />
+       <div>
             <strong>{{ boldmessage }}</strong><br />
-
+            This toturial has been put together by Xianyu Zhang. <br />
         </div>
 
         <div>
-            <a href="/rango/about/">About</a><br />
-             <!--Image-->
-            <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
-
+            <a href="/rango/">Index</a><br />
         </div>
+
+        <div>
+            <!--Image-->
+            <img src="{{ MEDIA_URL }}cat.jpg" />
+        </div>
+
+
     </body>
 
 
