@@ -5,11 +5,6 @@
 <html>
     <head>
         <title>Rango</title>
-        <!--CSS-->
-        <link rel="stylesheet" href="{% static "css/base.css" %}" />
-         <!--JavaScript-->
-        <script src="{% static "js/jquery.js" %}"></script>
-
     </head>
 
     <body>
@@ -17,9 +12,20 @@
 
         <div>
             hey there partner! <br />
-            <strong>{{ boldmessage }}</strong><br />
-
         </div>
+
+        <div>
+        {% if categories %}
+        <ul>
+            {% for category in categories %}
+                <li>{{ category.name }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
+        </div>
+
 
         <div>
             <a href="/rango/about/">About</a><br />
