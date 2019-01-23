@@ -1,36 +1,18 @@
-<!DOCTYPE html>
-
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
 
+{% block title_block %}
+    <strong>Rango</strong>
+{% endblock %}
 
-<html>
-    <head>
-        <title>Rango</title>
-        <!--CSS-->
-        <link rel="stylesheet" href="{% static "css/base.css" %}" />
-         <!--JavaScript-->
-        <script src="{% static "js/jquery.js" %}"></script>
-
-    </head>
-
-    <body>
-
+{% block body_block %}
        <div>
             <strong>{{ boldmessage }}</strong><br />
             This toturial has been put together by Xianyu Zhang. <br />
         </div>
 
         <div>
-            <a href="/rango/">Index</a><br />
-        </div>
-
-        <div>
             <!--Image-->
             <img src="{{ MEDIA_URL }}cat.jpg" />
         </div>
-
-
-    </body>
-
-
-</html>
+{% endblock %}
