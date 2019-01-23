@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rango.models import Category
+from rango.models import Page
 
 
 
@@ -24,3 +25,19 @@ def about(request):
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
     return render(request, 'rango/about.html', context=context_dict)
+
+
+def show_category(request, category_name_slug):
+    #create a context dictionary which we can [ass to the tamplate rendering engine
+    context_dict = {}
+
+    try:
+        category = Category.objects.get(slug=category_name_slug)
+        pages = Page.objects.filter(category=category)
+        context_dict['pages'] = pages
+        context_dict['category'] = category
+    except Category.DoesNotExist:
+        context_dict['pages'] = None
+        context_dict['category'] = None
+
+    return render(request, 'rango/category.html', context_dict)
