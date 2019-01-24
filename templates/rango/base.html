@@ -19,19 +19,21 @@
 
 
     <hr />
-    <div>
         {% block sidebar_block %}
+            <strong>All categories are here!</strong>
             {% get_category_list category %}
         {% endblock %}
     </div>
 
     <hr />
     <div>
+        <strong>Anything U Want!</strong>
         <ul>
             <li><a href="{% url 'add_category' %}">Add New Category</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'index' %}">Index</a></li>
             <li><a href="{% url 'register' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Login</a><li>
         </ul>
     </div>
 
