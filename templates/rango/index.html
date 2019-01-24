@@ -34,11 +34,15 @@
         {% endif %}
         </div>
 
-        <div>
-            <a href="{% url 'add_category' %}"> Add a New Category</a> <br /><br />
-        </div>
 
-
+        <ul>
+            {% if user.is_authenticated %}
+            <div>
+                <a href="{% url 'add_category' %}"> Add a New Category</a> <br /><br />
+            </div>
+            {% else %}
+            {% endif %}
+        </ul>
 
         <div>
             <strong>Most Viewed Pages.</strong><br />
