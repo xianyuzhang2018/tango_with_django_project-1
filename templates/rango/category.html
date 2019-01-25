@@ -1,6 +1,5 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
-{% load bootstrap_toolkit %}
 
 {% block title %}
     {{ category.name }}
@@ -19,6 +18,7 @@
             </ul>
         {% else %}
         <strong>No pages currently in category.</strong>
+            <br/><br/>
         {% endif %}
 
             {% if user.is_authenticated %}
