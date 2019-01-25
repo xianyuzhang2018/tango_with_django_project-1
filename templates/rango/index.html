@@ -32,9 +32,9 @@
                         <strong>There are no categories present.</strong>
                     {% endif %}
                     {% if user.is_authenticated %}
-                         <div>
-                             <a href="{% url 'add_category' %}"> Add a New Category</a> <br /><br />
-                         </div>
+                        <div>
+                             <a class="btn btn-primary" href="{% url 'add_category' %}" role="button">Add a New Category</a>
+                        </div>
                     {% else %}
                     {% endif %}
                 </p>
