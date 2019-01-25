@@ -2,69 +2,58 @@
 {% load staticfiles %}
 
 {% block title_block %}
-    <strong>Rango</strong>
+    Index
 {% endblock %}
 
 {% block body_block %}
-    <p>visits: {{ visits }}</p>
-        <h1>Rango says...</h1>
-
-        {% if user.is_authenticated %}
-            howdy {{ user.username }}!
-        {% else %}
-            hey there partner!
-        {% endif %}
-
-        <div>
-            <br />
-            <strong>Most Liked Categories.</strong>
-            <br />
-        </div>
-
-        <div>
-        {% if categories %}
-        <ul>
-            {% for category in categories %}
-                <li>
-                <a href="{% url 'show_category' category.slug %}">{{ category.name }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-            <strong>There are no categories present.</strong>
-        {% endif %}
-        </div>
-
-
-        <ul>
+        <div class="jumbotron">
+            <h1 class="display-3">Rango says...</h1>
             {% if user.is_authenticated %}
-            <div>
-                <a href="{% url 'add_category' %}"> Add a New Category</a> <br /><br />
-            </div>
+                <h4>hey there {{ user.username }}!</h4>
             {% else %}
+                <h4>hey there partner! </h4>
             {% endif %}
-        </ul>
-
-        <div>
-            <strong>Most Viewed Pages.</strong><br />
-        </div>
-
-         <div>
-        {% if pagelist %}
-        <ul>
-            {% for page in pagelist %}
-                <li>
-                <a href="{{ page.url }}">{{ page.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-            <strong>There are no pages present.</strong>
-        {% endif %}
         </div>
 
 
-        <div>
-            <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
+        <div class="row marketing">
+            <div class="col-lg-6">
+                <h4>Most Liked Categories</h4>
+                <p>
+                    {% if categories %}
+                        <ul>
+                            {% for category in categories %}
+                                <li>
+                                    <a href="{% url 'show_category' category.slug %}">{{ category.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <strong>There are no categories present.</strong>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                         <div>
+                             <a href="{% url 'add_category' %}"> Add a New Category</a> <br /><br />
+                         </div>
+                    {% else %}
+                    {% endif %}
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+            <h4>Most Viewed Pages.</h4>
+            <p>
+                {% if pagelist %}
+                    <ul>
+                        {% for page in pagelist %}
+                            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <strong>There are no pages present.</strong>
+                {% endif %}
+            </p>
+            </div>
         </div>
+    <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
 {% endblock %}
