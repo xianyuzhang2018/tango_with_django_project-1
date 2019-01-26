@@ -14,11 +14,11 @@
             <div class="list-group">
             {% for listuser in userprofile_list %}
             <div class="list-group-item">
-                <h4 class="list-group-item-heading">
+                <h5 class="list-group-item-heading">
                     <span style="font-size: 28px;">⛄</span>
                     <a href="{% url 'profile' listuser.user.username %}">{{ listuser.user.username }}</a>
                     <td>💩</td>
-                </h4>
+                </h5>
             </div>
             {% endfor %}
             </div>

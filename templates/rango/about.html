@@ -7,6 +7,18 @@
 
 {% block body_block %}
     <p>visits: {{ visits }}</p>
+
+    <button class="btn btn-primary" id="about-btn"> Click Me - I'm JavaScript on Speed</button>
+    <p>This is a example</p>
+    <p>This is another example</p>
+
+    <button class="btn btn-primary" onClick="alert('You clicked the button using JavaScript.');">
+        Click Me - I run JavaScript
+    </button>
+    <p>This text is for a JQuery Example</p>
+
+    <div id="msg">Hello - I'm here for a JQuery Example too</div>
+
        <div>
             <strong>{{ boldmessage }}</strong><br />
             This toturial has been put together by Xianyu Zhang. <br />
@@ -16,4 +28,5 @@
             <!--Image-->
             <img src="{{ MEDIA_URL }}cat.jpg" />
         </div>
+
 {% endblock %}
