@@ -43,6 +43,15 @@ def show_category(request, category_name_slug):
         context_dict['pages'] = None
         context_dict['category'] = None
 
+    context_dict['query'] = category.name
+    result_list = []
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+        if query:
+            result_list = run_query(query)
+            context_dict['query'] = query
+            context_dict['result_list'] = result_list
+
     return render(request, 'rango/category.html', context_dict)
 
 def show_page(request):
