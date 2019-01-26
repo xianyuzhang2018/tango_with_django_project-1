@@ -1,0 +1,31 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title %}User Profiles{% endblock %}
+
+{% block body_block %}
+    <br/>
+<h1>User Profiles</h1>
+
+<div class="panel">
+{% if userprofile_list %}
+    <div class="panel-heading">
+
+        <div class="panel-body">
+            <div class="list-group">
+            {% for listuser in userprofile_list %}
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    <span style="font-size: 28px;">⛄</span>
+                    <a href="{% url 'profile' listuser.user.username %}">{{ listuser.user.username }}</a>
+                    <td>💩</td>
+                </h4>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% else %}
+<p>There are no users for the site.</p>
+{% endif %}
+</div>
+{% endblock %}
