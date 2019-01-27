@@ -220,7 +220,7 @@ def register_profile(request):
             return redirect('index')
         else:
             print(form.errors)
-    context_dict = {'form':form}
+    context_dict = {'form': form}
     return render(request, 'rango/profile_registration.html', context_dict)
 
 
@@ -248,7 +248,19 @@ def list_profiles(request):
     userprofile_list = UserProfile.objects.all()
     return render(request, 'rango/list_profiles.html', {'userprofile_list' : userprofile_list})
 
-
+@login_required
+def like_category(request):
+    cat_id = None
+    if request.method == 'GET':
+        cat_id = request.GET['category_id']
+        likes = 0
+        if cat_id:
+            cat = Category.objects.get(id=int(cat_id))
+            if cat:
+                likes = cat.likes + 1
+                cat.likes = likes
+                cat.save()
+    return HttpResponse(likes)
 
 
 
