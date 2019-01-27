@@ -25,6 +25,7 @@
                             {% for category in categories %}
                                 <li>
                                     <a href="{% url 'show_category' category.slug %}">{{ category.name }}</a>
+                                    <span class="badge badge-pill badge-primary" id="like_count">{{ category.likes }}</span>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -46,7 +47,11 @@
                 {% if pagelist %}
                     <ul>
                         {% for page in pagelist %}
-                            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                            <li>
+                                <a href="{{ page.url }}">{{ page.title }}</a>
+                                <span class="badge badge-pill badge-primary" id="view_count">{{ page.views }}</span>
+
+                            </li>
                         {% endfor %}
                     </ul>
                 {% else %}
