@@ -78,8 +78,18 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-list flex-column">
+                <li class="nav-item">Type to find a category</li>
+                <form>
+                <li class="nav-item"><input class="search-query form-control" type="text"
+                    name="suggestion" value="" id="suggestion" /> </li>
+                </form>
+            </ul>
+            <hr>
+            <div id="cats"> </div>
+            <hr/>
             {% block sidebar_block %}
-                {% get_category_list category %}
+            {% get_category_list category %}
             {% endblock %}
         </div>
 
