@@ -17,7 +17,10 @@
 
     <div>
         {% if result_list %}
-        <h3>Results</h3>
+        <div>
+        <br/>
+        <h3>Results</h3><br/>
+        </div>
         <div class="list-group">
             {% for result in result_list %}
                 <div class="list-group-item">
@@ -25,6 +28,12 @@
                     <h4 class="list-group-item-heading"><a href="{{ result.link }}">{{ result.title }}</a> </h4>
                     <p class="list-group-item-text">{{ result.summary }}</p>
                 </div>
+
+                {% if user.is_authenticated %}
+                    <button data-catid="{{category.id}}" data-title="{{ result.title }}"
+                    data-url="{{ result.link }}" class="rango-add btn btn-primary btn-sm"
+                    type="button">Add</button>
+                    {% endif %}
             {% endfor %}
         </div>
         {% endif %}

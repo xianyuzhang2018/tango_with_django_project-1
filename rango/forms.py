@@ -11,6 +11,11 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ('name',)
+        error_messages = {
+            'name': {
+                'required': ("A valid category's name is required."),
+            },
+        }
 
 class PageForm(forms.ModelForm):
     title = forms.CharField(max_length=128, help_text="Please enter the title of the page.")

@@ -16,12 +16,6 @@
             </button>
         {% endif %}
 
-        {% if user.is_authenticated %}
-            <button data-catid="{{category.id}}" data-title="{{ result.title }}"
-                    data-url="{{ result.link }}" class="rango-add btn btn-primary btn-sm"
-                    type="button">Add</button>
-        {% endif %}
-
         </h1>
 
         <div>
@@ -59,7 +53,7 @@
     {% endif %}
 
     <hr/>
-
+    {% if user.is_authenticated %}
     <form class="form-inline" id="user_form" method="post" action="{% url 'show_category' category.slug %}">
         {% csrf_token %}
         <div class="form-group">
@@ -76,11 +70,18 @@
                 {% for result in result_list %}
                     <div class="list-group-item">
                         <h4 class="list-group-item-heading"><a href="{{ result.link }}">{{ result.title }}</a> </h4>
-                        <p class="list-group-item-text">{{ result.summary }}</p> </div>
+                        <p class="list-group-item-text">{{ result.summary }}</p>
+
+                    <button data-catid="{{category.id}}" data-title="{{ result.title }}"
+                    data-url="{{ result.link }}" class="rango-add btn btn-primary btn-sm"
+                    type="button">Add</button>
+
+                    </div>
                 {% endfor %}
             </div>
         {% endif %}
     </div>
+    {% endif %}
 
 
 
