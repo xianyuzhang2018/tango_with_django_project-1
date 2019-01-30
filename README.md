@@ -13,4 +13,4 @@
 ```conda activate rangotests```\
 ```cd rango_tests```\
 ```pip install -r requirements.txt```\
-```python run_tests.py -u https://github.com/xianyuzhang0709/tango_with_django_project.git -s Xiayu_Zhang -d 2019-01-24```\
+```python run_tests.py -u https://github.com/xianyuzhang0709/tango_with_django_project.git -s Xiayu_Zhang -d 2019-01-24```
